@@ -18,6 +18,13 @@ export default function(state, action) {
                 }
                 return el
               })
+        case 'edit':
+            return state.map((el) => {
+                if (el.id === action.payload.id) {
+                    el.title = action.payload.title
+                }
+                return el
+            })
         default:
             return state
     }

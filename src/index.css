@@ -27,8 +27,15 @@ body {
   z-index: 2;
 }
 
-button {
+.todoActions button {
   border: 0;
   background: transparent;
   color: white;
+  cursor: pointer;
+}
+
+.todoActions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }

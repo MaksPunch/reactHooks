@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import Context from './context'
 
 export default function TodoItem({todo}) {
@@ -22,18 +22,31 @@ export default function TodoItem({todo}) {
           })}
         />
         <span>{todo.title}</span>
-
-        <button onClick={() => dispatch({
-          type: 'remove',
-          payload: todo.id
-        })}>
-          <i
-            className="material-icons red-text"
-          >
-            delete
-          </i>
-        </button>
-        
+        <div className='todoActions'>
+          <button onClick={() => dispatch({
+            type: 'edit',
+            payload: {
+              id: todo.id,
+              title: prompt('Укажите новое название задачи.')
+            }
+          })}>
+            <i
+                className="material-icons black-text"
+            >
+              edit
+            </i>
+          </button>
+          <button onClick={() => dispatch({
+            type: 'remove',
+            payload: todo.id
+          })}>
+            <i
+                className="material-icons red-text"
+            >
+              delete
+            </i>
+          </button>
+        </div>
       </label>
     </li>
   )

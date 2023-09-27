@@ -5,6 +5,11 @@ import reducer from './reducer'
 
 
 export default function App() {
+
+    if (!localStorage.getItem('todos')) {
+        localStorage.setItem('todos', JSON.stringify([]))
+    }
+
     const [state, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('todos')))
     const [todoTitle, setTodoTitle] = useState('Todo Name');
 
